@@ -39,12 +39,32 @@
 */ 
 
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
 int main() {
+    vector <int> list_integer {100,1,3,2};
+//    cout << list_integer.size() << endl;
+//    for (int i = 0; i < list_integer.size(); ++i) {
+//        cout << list_integer[i] << endl;        
+//    }
+while(true) {
+    char input {};
     
+    cout << "P - Print numbers" << endl;
+    cout << "A - add a number" << endl;
+    cout << "M - display mean of the numbers" << endl;
+    cout << "S - display the smallest numbers" << endl;
+    cout << "L - display the largest number" << endl;
+    cout << "Q - Quit" << endl;
     
+    cout << "Enter your choice ";
+    cin >> input;
+    
+    if (input == 'q' || input == 'Q')
+        break;
+}    
     
     cout << endl;
     return 0;
