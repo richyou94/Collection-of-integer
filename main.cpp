@@ -40,11 +40,13 @@
 
 #include <iostream>
 #include <vector>
+#include <numeric>
 
 using namespace std;
 
 int main() {
     vector <int> list_integer {};
+    
     
 while(true) {
     char input {};
@@ -84,6 +86,48 @@ while(true) {
         list_integer.push_back(addInput);
         cout << addInput << " added" << endl;
     }
+    
+    if (input == 'm' || input == 'M') {
+        if (list_integer.size() == 0) {
+            cout << "Unable to caculate the mean -- no data" << endl;
+        } else {
+            int sum = accumulate(list_integer.begin(), list_integer.end(), 0);
+            double mean = double(sum) / list_integer.size();
+            cout << "The mean of the list is " << mean << endl;
+        }
+    }
+    
+    if (input == 's' || input == 'S') {
+        if (list_integer.size() == 0) {
+            cout << "Unable to find smallest number" << endl;
+        } else {
+            int smallest = list_integer[0];
+            for (int i = 1; i < list_integer.size(); i++) {
+                if (smallest > list_integer[i]) {
+                    smallest = list_integer[i];
+                } 
+            }
+            cout << "The smallest number is " << smallest << endl;
+        }
+        
+    }
+    
+    if (input == 'l' || input == 'L') {
+        if (list_integer.size() == 0) {
+            cout << "Unable to find largest number" << endl;
+        } else {
+            int largest = list_integer[0];
+            for (int i = 1; i < list_integer.size(); i++) {
+                if (largest < list_integer[i]) {
+                    largest = list_integer[i];
+                } 
+            }
+            cout << "The largest number is " << largest << endl;
+        }
+        
+    }
+    
+    
 }    
     
     cout << endl;
